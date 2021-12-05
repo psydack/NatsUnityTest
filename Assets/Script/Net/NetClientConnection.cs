@@ -1,4 +1,4 @@
-﻿public class ClientConnection : NetConnection
+﻿public class NetClientConnection : NetConnection
 {
 	protected override void OnCreateConnection()
 	{
@@ -7,7 +7,7 @@
 			_connection.SubscribeSync(Command.Print.ToString()));
 
 		_subscriberMap.Add(
-			Command.Move,
-			_connection.SubscribeSync(Command.Move.ToString()));
+			Command.Position,
+			_connection.SubscribeSync(Command.Position.ToString()));
 	}
 }

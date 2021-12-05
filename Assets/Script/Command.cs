@@ -1,6 +1,6 @@
 ﻿public enum Command
 {
 	RequestMove,
-	Move,
+	Position,
 	Print
 }

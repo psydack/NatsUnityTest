@@ -1,7 +1,8 @@
 ﻿using System.Text;
 using Unity.Entities;
 
-public class ConsumePrintClientSystem : SystemBase
+[DisableAutoCreation]
+public class ConsumeClientPrintSystem : SystemBase
 {
 	private NetClientSystem _clientSystem;
 
@@ -17,7 +18,7 @@ public class ConsumePrintClientSystem : SystemBase
 		var map = _clientSystem.Connection.SubscriberMap;
 
 		Entities
-			.WithAll<ClientContext>()
+			.WithAll<NetClientContext>()
 			.ForEach((Entity entity) =>
 			{
 				if (map.TryGetValue(Command.Print, out var subscriber))

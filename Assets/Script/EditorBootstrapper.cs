@@ -27,15 +27,15 @@ public class EditorBootstrapper : Bootstrapper
 
 			var entityManager = world.EntityManager;
 			var entity = entityManager.CreateEntity();
-			//entityManager.AddComponent<NetContext>(entity);
+			entityManager.AddComponent<NetContext>(entity);
 
 			switch (context.Type)
 			{
 				case WorldContextType.Server:
-					entityManager.AddComponent<ServerContext>(entity);
+					entityManager.AddComponent<NetServerContext>(entity);
 					break;
 				case WorldContextType.Client:
-					entityManager.AddComponent<ClientContext>(entity);
+					entityManager.AddComponent<NetClientContext>(entity);
 					break;
 			}
 		}

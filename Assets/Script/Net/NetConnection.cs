@@ -1,6 +1,5 @@
 ﻿using NATS.Client;
 using System.Collections.Generic;
-using Unity.Entities;
 
 public abstract class NetConnection
 {
@@ -24,39 +23,14 @@ public abstract class NetConnection
 
 	public virtual void Stop()
 	{
-		_connection?.Drain();
+		//_connection?.Drain(100);
 		_connection?.Close();
 	}
 
-	public void Publish(string subject, byte[] data)
+	public void Publish(string subject, in byte[] data)
 	{
 		_connection.Publish(subject, data);
 	}
 
 	protected abstract void OnCreateConnection();
-}
-
-public class SimulateInputClientSystem : SystemBase
-{
-	private NetClientSystem _clientSystem;
-
-	protected override void OnCreate()
-	{
-		base.OnCreate();
-
-		_clientSystem = World.GetExistingSystem<NetClientSystem>();
-	}
-
-	protected override void OnUpdate()
-	{
-		var connection = _clientSystem.Connection;
-
-		Entities
-			.WithAll<ClientContext>()
-			.ForEach((Entity entity) =>
-			{
-				//connection.Publish(Command.RequestMove, )
-			})
-			.Schedule();
-	}
 }
