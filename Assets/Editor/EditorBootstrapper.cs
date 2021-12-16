@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using Unity.Entities;
 using UnityEngine.LowLevel;
@@ -7,7 +8,7 @@ public class EditorBootstrapper : Bootstrapper
 {
 	public override bool Initialize(string defaultWorldName)
 	{
-		var contexts = Utilities.LoadWorlds("WorldSettings");
+		var contexts = EditorUtilities.LoadWorlds("WorldSettings");
 		foreach (var context in contexts?.Worlds)
 		{
 			var world = new World($"{context.Type}_{Guid.NewGuid()}");
@@ -43,3 +44,4 @@ public class EditorBootstrapper : Bootstrapper
 		return true;
 	}
 }
+#endif

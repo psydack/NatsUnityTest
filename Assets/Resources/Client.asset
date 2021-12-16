@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65044c52d3d0a394ca6d5a64d59a3518, type: 3}
-  m_Name: WorldSettings
+  m_Script: {fileID: 11500000, guid: 366e9b469191e0943b9cf16ef5a5ee7c, type: 3}
+  m_Name: Client
   m_EditorClassIdentifier: 
-  Worlds:
-  - {fileID: 11400000, guid: 77e4a743d7511b541a1292c6681af6b7, type: 2}
+  Name: Client
+  Objects:
+  - {fileID: 537058909528270691, guid: 309f8a643689fe943806dfa227b64ab3, type: 3}

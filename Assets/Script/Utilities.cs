@@ -1,9 +1,9 @@
-﻿using UnityEditor;
+﻿using UnityEngine;
 
 public static class Utilities
 {
-	public static WorldContextSettings LoadWorlds(string worldContextAsset)
+	public static WorldContext LoadWorldContext(string worldContextFilename)
 	{
-		return AssetDatabase.LoadAssetAtPath<WorldContextSettings>($"Assets/Settings/{worldContextAsset}.asset");
+		return Resources.Load<WorldContext>($"{worldContextFilename}");
 	}
 }

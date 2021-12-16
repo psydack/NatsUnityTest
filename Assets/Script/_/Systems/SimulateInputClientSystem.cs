@@ -19,14 +19,13 @@ public class SimulateInputClientSystem : SystemBase
 
 	protected override void OnUpdate()
 	{
-
 		var horizontal = UnityEngine.Input.GetAxis("Horizontal");
 		var vertical = UnityEngine.Input.GetAxis("Vertical");
-		var movement = new float3(horizontal, 0, vertical);
+		var movement = new float3(horizontal, 0, vertical) * 5;
 
 		if (UnityEngine.Input.GetKey(UnityEngine.KeyCode.LeftShift))
 		{
-			movement *= 5f;
+			movement *= 2f;
 		}
 
 		var data = new byte[UnsafeUtility.SizeOf<float3>()];

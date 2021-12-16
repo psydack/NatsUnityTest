@@ -26,7 +26,6 @@ public class ConsumeSimulateRequestMoveSystem : SystemBase
 		var connection = _serverSystem.Connection;
 		var map = connection.SubscriberMap;
 		var deltaTime = Time.DeltaTime;
-		var maxMessage = 30;
 
 		Entities
 			.WithStoreEntityQueryInField(ref _query)
@@ -34,7 +33,7 @@ public class ConsumeSimulateRequestMoveSystem : SystemBase
 			{
 				if (map.TryGetValue(Command.RequestMove, out var subscriber))
 				{
-					while (subscriber.PendingMessages > 0 && --maxMessage > 0)
+					while (subscriber.PendingMessages > 0)
 					{
 						var message = subscriber.NextMessage();
 
